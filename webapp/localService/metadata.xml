@@ -1,0 +1,1219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="https://dev:44300/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://dev:44300/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://dev:44300/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://dev:44300/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://dev:44300/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://dev:44300/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://dev:44300/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://dev:44300/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://dev:44300/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://dev:44300/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZCDS_PRODORDERWITHSTATUS_CDS" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <EntityType Name="I_BatchStdVHType" sap:label="Batch information" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Plant"/>
+                    <PropertyRef Name="Material"/>
+                    <PropertyRef Name="Batch"/>
+                </Key>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Plant"/>
+                <Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="40" sap:display-format="UpperCase" sap:label="Material" sap:quickinfo="Material Number"/>
+                <Property Name="Batch" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Batch" sap:quickinfo="Batch Number"/>
+            </EntityType>
+            <EntityType Name="I_BusinessAreaStdVHType" sap:label="Business Area" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="BusinessArea"/>
+                </Key>
+                <Property Name="BusinessArea" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:text="BusinessArea_Text" sap:label="Business Area"/>
+                <Property Name="BusinessArea_Text" Type="Edm.String" MaxLength="30" sap:label="BA Description" sap:quickinfo="Business Area Description" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="I_CapacityRequirementStdVHType" sap:label="Capacity Requirement Header" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="CapacityRequirement"/>
+                </Key>
+                <Property Name="CapacityRequirement" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="NonNegative" sap:label="Capacity Requirement" sap:quickinfo="ID of the Capacity Requirements Record"/>
+            </EntityType>
+            <EntityType Name="I_ChangeMasterStdVHType" sap:label="Change Number" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ChangeNumber"/>
+                </Key>
+                <Property Name="ChangeNumber" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:text="ChangeNumberDescription" sap:label="Change Number"/>
+                <Property Name="ChangeNumberDescription" Type="Edm.String" MaxLength="40" sap:label="Description" sap:quickinfo="Change number description"/>
+            </EntityType>
+            <EntityType Name="I_CompanyCodeStdVHType" sap:label="Company Code" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="CompanyCode"/>
+                </Key>
+                <Property Name="CompanyCode" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:text="CompanyCodeName" sap:label="Company Code"/>
+                <Property Name="CompanyCodeName" Type="Edm.String" MaxLength="25" sap:label="Company Name" sap:quickinfo="Name of Company Code or Company"/>
+            </EntityType>
+            <EntityType Name="I_CostCenterStdVHType" sap:label="Cost Center" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ControllingArea"/>
+                    <PropertyRef Name="CostCenter"/>
+                    <PropertyRef Name="ValidityEndDate"/>
+                </Key>
+                <Property Name="ControllingArea" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Controlling Area"/>
+                <Property Name="CostCenter" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:text="CostCenter_Text" sap:label="Cost Center"/>
+                <Property Name="CostCenter_Text" Type="Edm.String" MaxLength="20" sap:label="Cost Center Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ValidityEndDate" Type="Edm.DateTime" Nullable="false" Precision="0" sap:display-format="Date" sap:label="Valid To" sap:quickinfo="Valid To Date"/>
+                <Property Name="ValidityStartDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Valid From" sap:quickinfo="Valid-From Date"/>
+            </EntityType>
+            <EntityType Name="I_GLAccountStdVHType" sap:label="General Ledger Account" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="GLAccount"/>
+                    <PropertyRef Name="CompanyCode"/>
+                </Key>
+                <Property Name="GLAccount" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:text="GLAccount_Text" sap:label="G/L Account" sap:quickinfo="G/L Account Number"/>
+                <Property Name="GLAccount_Text" Type="Edm.String" MaxLength="20" sap:label="G/L Account Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CompanyCode" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Company Code"/>
+                <Property Name="GLAccountExternal" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="G/L Acct External ID" sap:quickinfo="G/L Account Number"/>
+                <Property Name="AlternativeGLAccount" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Alternative G/L Account" sap:quickinfo="Alternative G/L Account Number In Company Code"/>
+                <Property Name="ChartOfAccounts" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Chart of Accounts"/>
+                <Property Name="GLAccountGroup" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Account Group" sap:quickinfo="G/L Account Group"/>
+                <Property Name="GLAccountType" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="G/L Account Type" sap:quickinfo="Type of a General Ledger Account"/>
+                <Property Name="ReconciliationAccountType" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Reconcil.ID" sap:quickinfo="Account is Reconciliation Account"/>
+            </EntityType>
+            <EntityType Name="I_InspectionLotStdVHType" sap:label="Inspection Lot" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="InspectionLot"/>
+                </Key>
+                <Property Name="InspectionLot" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="NonNegative" sap:label="Inspection Lot" sap:quickinfo="Inspection Lot Number"/>
+            </EntityType>
+            <EntityType Name="I_MaterialStdVHType" sap:label="Material" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Material"/>
+                </Key>
+                <Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="40" sap:display-format="UpperCase" sap:text="Material_Text" sap:label="Material" sap:quickinfo="Material Number"/>
+                <Property Name="Material_Text" Type="Edm.String" MaxLength="40" sap:label="Material Description" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="I_MfgBillOfOperationsStdVHType" sap:label="Manufacturing Bill of Operations" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="BillOfOperationsType"/>
+                    <PropertyRef Name="BillOfOperationsGroup"/>
+                    <PropertyRef Name="BillOfOperationsVariant"/>
+                </Key>
+                <Property Name="BillOfOperationsType" Type="Edm.String" Nullable="false" MaxLength="1" sap:display-format="UpperCase" sap:label="Task List Type"/>
+                <Property Name="BillOfOperationsGroup" Type="Edm.String" Nullable="false" MaxLength="8" sap:display-format="UpperCase" sap:label="Group" sap:quickinfo="Key for Task List Group"/>
+                <Property Name="BillOfOperationsVariant" Type="Edm.String" Nullable="false" MaxLength="2" sap:display-format="UpperCase" sap:label="Group Counter"/>
+            </EntityType>
+            <EntityType Name="I_MfgBOOChgStateStdVHType" sap:label="Manufacturing Bill of Operations Change State" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="BillOfOperationsType"/>
+                    <PropertyRef Name="BillOfOperationsGroup"/>
+                    <PropertyRef Name="BillOfOperationsVariant"/>
+                    <PropertyRef Name="BOOInternalVersionCounter"/>
+                </Key>
+                <Property Name="BillOfOperationsType" Type="Edm.String" Nullable="false" MaxLength="1" sap:display-format="UpperCase" sap:label="Task List Type"/>
+                <Property Name="BillOfOperationsGroup" Type="Edm.String" Nullable="false" MaxLength="8" sap:display-format="UpperCase" sap:label="Group" sap:quickinfo="Key for Task List Group"/>
+                <Property Name="BillOfOperationsVariant" Type="Edm.String" Nullable="false" MaxLength="2" sap:display-format="UpperCase" sap:label="Group Counter"/>
+                <Property Name="BOOInternalVersionCounter" Type="Edm.String" Nullable="false" MaxLength="8" sap:display-format="NonNegative" sap:text="BillOfOperationsDesc" sap:label="Counter" sap:quickinfo="Internal counter"/>
+                <Property Name="BillOfOperationsDesc" Type="Edm.String" MaxLength="40" sap:label="Description" sap:quickinfo="Routing Description"/>
+                <Property Name="ValidityEndDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Valid-To Date"/>
+                <Property Name="ValidityStartDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Valid-From Date"/>
+            </EntityType>
+            <EntityType Name="I_MfgOrderStdVHType" sap:label="Manufacturing Order" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ManufacturingOrder"/>
+                </Key>
+                <Property Name="ManufacturingOrder" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:text="ManufacturingOrderText" sap:label="Manufacturing Order" sap:quickinfo="Manufacturing Order ID"/>
+                <Property Name="ManufacturingOrderText" Type="Edm.String" MaxLength="40" sap:label="Order Text" sap:quickinfo="Manufacturing Order Text"/>
+            </EntityType>
+            <EntityType Name="I_ProductcategoryvhType" sap:label="Product Category Type Value Help" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ProductCategory"/>
+                </Key>
+                <Property Name="ProductCategory" Type="Edm.String" Nullable="false" MaxLength="2" sap:display-format="UpperCase" sap:text="ProductCategory_Text" sap:label="Product Category"/>
+                <Property Name="ProductCategory_Text" Type="Edm.String" MaxLength="60" sap:label="Product Category Text" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="I_ProductCostCtrlgOrderStdVHType" sap:label="Product Cost Controlling Order" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="OrderID"/>
+                </Key>
+                <Property Name="OrderID" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:text="OrderDescription" sap:label="Order Number"/>
+                <Property Name="OrderDescription" Type="Edm.String" MaxLength="40" sap:label="Order Desc." sap:quickinfo="Order Description"/>
+                <Property Name="OrderCategory" Type="Edm.String" MaxLength="2" sap:display-format="NonNegative" sap:label="Order Category"/>
+                <Property Name="OrderType" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Order Type"/>
+                <Property Name="Plant" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Plant"/>
+            </EntityType>
+            <EntityType Name="I_ProductionVersionStdVHType" sap:label="Production Version" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Material"/>
+                    <PropertyRef Name="Plant"/>
+                    <PropertyRef Name="ProductionVersion"/>
+                </Key>
+                <Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="40" sap:display-format="UpperCase" sap:label="Material" sap:quickinfo="Material Number" sap:value-list="standard"/>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Plant"/>
+                <Property Name="ProductionVersion" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:text="ProductionVersionText" sap:label="Production Version"/>
+                <Property Name="ProductionVersionText" Type="Edm.String" MaxLength="40" sap:label="Prodn Version Text" sap:quickinfo="Short Text for Production Version"/>
+                <Property Name="ValidityEndDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Validity End Date"/>
+                <Property Name="ValidityStartDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Validity Start Date"/>
+            </EntityType>
+            <EntityType Name="I_ProductVHType" sap:label="Product Value Help" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Product"/>
+                </Key>
+                <Property Name="Product" Type="Edm.String" Nullable="false" MaxLength="40" sap:display-format="UpperCase" sap:text="Product_Text" sap:label="Product" sap:quickinfo="Product Number"/>
+                <Property Name="Product_Text" Type="Edm.String" MaxLength="40" sap:label="Product Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ProductExternalID" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="External Product ID" sap:quickinfo="External Representation of Material Number"/>
+                <Property Name="IndustrySector" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Industry Sector"/>
+                <Property Name="ProductType" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Product Type"/>
+                <Property Name="ProductGroup" Type="Edm.String" MaxLength="9" sap:display-format="UpperCase" sap:label="Product Group"/>
+                <Property Name="BaseUnit" Type="Edm.String" MaxLength="3" sap:text="to_BaseUnit/UnitOfMeasure_Text" sap:label="Base Unit of Measure" sap:value-list="standard" sap:semantics="unit-of-measure"/>
+                <Property Name="GrossWeight" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="WeightUnit" sap:label="Gross Weight"/>
+                <Property Name="NetWeight" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="WeightUnit" sap:label="Net Weight"/>
+                <Property Name="WeightUnit" Type="Edm.String" MaxLength="3" sap:text="to_WeightUnit/UnitOfMeasure_Text" sap:label="Unit of Weight" sap:value-list="standard" sap:semantics="unit-of-measure"/>
+                <Property Name="ManufacturerNumber" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Manufacturer" sap:quickinfo="Manufacturer number"/>
+                <Property Name="IsBatchManagementRequired" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Batch Management" sap:quickinfo="Batch Management Requirement Indicator"/>
+                <Property Name="ProductManufacturerNumber" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Mfr Part Number" sap:quickinfo="Manufacturer Part Number"/>
+                <Property Name="ArticleCategory" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:text="to_ProductCategory/ProductCategory_Text" sap:label="Product Category" sap:value-list="standard"/>
+                <NavigationProperty Name="to_BaseUnit" Relationship="ZCDS_PRODORDERWITHSTATUS_CDS.assoc_4A7385D38672B9A17EDD3BC5EEEBDFED" FromRole="FromRole_assoc_4A7385D38672B9A17EDD3BC5EEEBDFED" ToRole="ToRole_assoc_4A7385D38672B9A17EDD3BC5EEEBDFED"/>
+                <NavigationProperty Name="to_ProductCategory" Relationship="ZCDS_PRODORDERWITHSTATUS_CDS.assoc_E58255E6E9CE868529149C17C208465F" FromRole="FromRole_assoc_E58255E6E9CE868529149C17C208465F" ToRole="ToRole_assoc_E58255E6E9CE868529149C17C208465F"/>
+                <NavigationProperty Name="to_WeightUnit" Relationship="ZCDS_PRODORDERWITHSTATUS_CDS.assoc_EE6A775290C5A92287938CE5B3D82BFB" FromRole="FromRole_assoc_EE6A775290C5A92287938CE5B3D82BFB" ToRole="ToRole_assoc_EE6A775290C5A92287938CE5B3D82BFB"/>
+            </EntityType>
+            <EntityType Name="I_ProfitCenterStdVHType" sap:label="Profit Center" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ControllingArea"/>
+                    <PropertyRef Name="ProfitCenter"/>
+                    <PropertyRef Name="ValidityEndDate"/>
+                </Key>
+                <Property Name="ControllingArea" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Controlling Area"/>
+                <Property Name="ProfitCenter" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:text="ProfitCenter_Text" sap:label="Profit Center"/>
+                <Property Name="ProfitCenter_Text" Type="Edm.String" MaxLength="20" sap:label="Profit Center Name" sap:quickinfo="Description of Profit Center" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ValidityEndDate" Type="Edm.DateTime" Nullable="false" Precision="0" sap:display-format="Date" sap:label="Valid To" sap:quickinfo="Valid To Date"/>
+                <Property Name="ValidityStartDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Valid From" sap:quickinfo="Valid-From Date"/>
+            </EntityType>
+            <EntityType Name="I_SalesOrderItemStdVHType" sap:label="Sales Order Item" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="SalesOrder"/>
+                    <PropertyRef Name="SalesOrderItem"/>
+                </Key>
+                <Property Name="SalesOrder" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Sales Order"/>
+                <Property Name="SalesOrderItem" Type="Edm.String" Nullable="false" MaxLength="6" sap:display-format="NonNegative" sap:text="SalesOrderItemText" sap:label="Item" sap:quickinfo="Sales Order Item"/>
+                <Property Name="SalesOrderItemText" Type="Edm.String" MaxLength="40" sap:label="Item Description" sap:quickinfo="Short text for sales order item"/>
+            </EntityType>
+            <EntityType Name="I_SalesOrderStdVHType" sap:label="Sales Order" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="SalesOrder"/>
+                </Key>
+                <Property Name="SalesOrder" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Sales Order"/>
+            </EntityType>
+            <EntityType Name="I_UnitOfMeasureType" sap:label="Unit of Measure" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="UnitOfMeasure"/>
+                </Key>
+                <Property Name="UnitOfMeasure" Type="Edm.String" Nullable="false" MaxLength="3" sap:text="UnitOfMeasure_Text" sap:label="Unit of Measure" sap:semantics="unit-of-measure"/>
+                <Property Name="UnitOfMeasure_Text" Type="Edm.String" MaxLength="30" sap:label="Measurement Unit Txt" sap:quickinfo="Unit of Measurement Text (Maximum 30 Characters)" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="UnitOfMeasureSAPCode" Type="Edm.String" MaxLength="3" sap:label="Internal SAP Code" sap:quickinfo="Unit of Measurement, Internal SAP Code (No Conversion)"/>
+                <Property Name="UnitOfMeasureISOCode" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="ISO Code" sap:quickinfo="ISO Code for Unit of Measurement"/>
+                <Property Name="IsPrimaryUnitForISOCode" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Primary code" sap:quickinfo="Selection field for conversion from ISO code to int. code"/>
+                <Property Name="UnitOfMeasureNumberOfDecimals" Type="Edm.Int16" sap:label="Decimal Rounding" sap:quickinfo="No. of decimal places for rounding"/>
+                <Property Name="UnitOfMeasureIsCommercial" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Commercial meas.unit" sap:quickinfo="Commercial measurement unit ID"/>
+                <Property Name="UnitOfMeasureDimension" Type="Edm.String" MaxLength="6" sap:display-format="UpperCase" sap:label="Dimension" sap:quickinfo="Dimension key"/>
+                <Property Name="SIUnitCnvrsnRateNumerator" Type="Edm.Int32" sap:label="Numerator" sap:quickinfo="Numerator for conversion to SI unit"/>
+                <Property Name="SIUnitCnvrsnRateDenominator" Type="Edm.Int32" sap:label="Denominator" sap:quickinfo="Denominator for conversion into SI unit"/>
+                <Property Name="SIUnitCnvrsnRateExponent" Type="Edm.Int16" sap:label="Exponent" sap:quickinfo="base ten exponent for conversion to SI unit"/>
+                <Property Name="SIUnitCnvrsnAdditiveValue" Type="Edm.Decimal" Precision="9" Scale="6" sap:label="Additive constant" sap:quickinfo="Additive constant for conversion to SI unit"/>
+                <Property Name="UnitOfMeasureDspExponent" Type="Edm.Int16" sap:label="Exp. 10 Floating Pt" sap:quickinfo="Exponent of 10 for Floating Point Format"/>
+                <Property Name="UnitOfMeasureDspNmbrOfDcmls" Type="Edm.Int16" sap:label="Decimal Places" sap:quickinfo="Number of Decimal Places for Number Display"/>
+                <Property Name="UnitOfMeasureTemperature" Type="Edm.Double" sap:unit="UnitOfMeasureTemperatureUnit" sap:label="Temperature"/>
+                <Property Name="UnitOfMeasureTemperatureUnit" Type="Edm.String" MaxLength="3" sap:label="Temperature unit" sap:semantics="unit-of-measure"/>
+                <Property Name="UnitOfMeasurePressure" Type="Edm.Double" sap:unit="UnitOfMeasurePressureUnit" sap:label="Pressure Value"/>
+                <Property Name="UnitOfMeasurePressureUnit" Type="Edm.String" MaxLength="3" sap:label="Unit of Pressure" sap:semantics="unit-of-measure"/>
+            </EntityType>
+            <EntityType Name="I_WBSElementBasicDataStdVHType" sap:label="Basic data for WBS Element" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="WBSElementInternalID"/>
+                </Key>
+                <Property Name="WBSElementInternalID" Type="Edm.String" Nullable="false" MaxLength="8" sap:display-format="NonNegative" sap:label="WBS Internal ID" sap:quickinfo="WBS Element"/>
+                <Property Name="WBSElementExternalID" Type="Edm.String" MaxLength="24" sap:display-format="UpperCase" sap:text="WBSDescription" sap:label="WBS Element" sap:quickinfo="Work Breakdown Structure Element (WBS Element) Edited"/>
+                <Property Name="WBSDescription" Type="Edm.String" MaxLength="40" sap:label="WBS Element Name"/>
+            </EntityType>
+            <EntityType Name="I_WBSElmntByIntKeyStdVHType" sap:label="WBS Element Details by Internal ID" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="WBSElementInternalID"/>
+                </Key>
+                <Property Name="WBSElementInternalID" Type="Edm.String" Nullable="false" MaxLength="8" sap:display-format="NonNegative" sap:label="WBS Element Internal ID" sap:quickinfo="WBS Element"/>
+                <Property Name="WBSElement" Type="Edm.String" MaxLength="24" sap:display-format="UpperCase" sap:text="WBSDescription" sap:label="WBS Element" sap:quickinfo="Work Breakdown Structure Element (WBS Element)"/>
+                <Property Name="WBSDescription" Type="Edm.String" MaxLength="40" sap:label="WBS Element Name"/>
+            </EntityType>
+            <EntityType Name="ZCDS_ProdOrderWithStatusType" sap:label="Production Order with Status" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ManufacturingOrder"/>
+                    <PropertyRef Name="ObjectInternalID"/>
+                </Key>
+                <Property Name="ManufacturingOrder" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:text="ManufacturingOrderText" sap:label="Manufacturing Order" sap:quickinfo="Manufacturing Order ID"/>
+                <Property Name="ObjectInternalID" Type="Edm.String" Nullable="false" MaxLength="22" sap:display-format="UpperCase" sap:label="Object number"/>
+                <Property Name="ManufacturingOrderCategory" Type="Edm.String" MaxLength="2" sap:display-format="NonNegative" sap:label="Order Category"/>
+                <Property Name="ManufacturingOrderType" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Order Type"/>
+                <Property Name="ManufacturingOrderText" Type="Edm.String" MaxLength="40" sap:label="Order Text" sap:quickinfo="Manufacturing Order Text"/>
+                <Property Name="ManufacturingOrderHasLongText" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Long Text Exists"/>
+                <Property Name="LongTextLanguageCode" Type="Edm.String" MaxLength="2" sap:label="Long Text Language"/>
+                <Property Name="ManufacturingOrderImportance" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Order Importance" sap:quickinfo="Order Importance Code"/>
+                <Property Name="IsMarkedForDeletion" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Deletion Flag"/>
+                <Property Name="IsCompletelyDelivered" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Delivery Completed" sap:quickinfo="&quot;Delivery Completed&quot; Indicator"/>
+                <Property Name="MfgOrderHasMultipleItems" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Multiple Items" sap:quickinfo="Order Has Multiple Items"/>
+                <Property Name="MfgOrderIsPartOfCollvOrder" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Collective Order" sap:quickinfo="Order is Part of Collective Order"/>
+                <Property Name="MfgOrderHierarchyLevel" Type="Edm.Decimal" Precision="2" Scale="0" sap:label="Level" sap:quickinfo="Level (in multi-level BOM explosions)"/>
+                <Property Name="OrderIsNotCostedAutomatically" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="No automatic costing" sap:quickinfo="Indicator: Do not cost automatically"/>
+                <Property Name="OrdIsNotSchedldAutomatically" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="No auto. scheduling" sap:quickinfo="Indicator: Do not schedule automatically"/>
+                <Property Name="ProdnProcgIsFlexible" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Flexible Processing"/>
+                <Property Name="OrderIsEventBasedPosting" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Event-Based Posting"/>
+                <Property Name="CreationDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Order Creation Date"/>
+                <Property Name="CreationTime" Type="Edm.Time" Precision="0" sap:label="Order Creation Time"/>
+                <Property Name="CreatedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Entered By"/>
+                <Property Name="LastChangeDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Changed On" sap:quickinfo="Change Date for Order Master"/>
+                <Property Name="LastChangeTime" Type="Edm.Time" Precision="0" sap:label="Changed At"/>
+                <Property Name="LastChangedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Last Changed By"/>
+                <Property Name="Material" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Material" sap:quickinfo="Material Number for Order" sap:value-list="standard"/>
+                <Property Name="Product" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Product" sap:quickinfo="Product Number" sap:value-list="standard"/>
+                <Property Name="StorageLocation" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Storage Location"/>
+                <Property Name="Batch" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Batch" sap:quickinfo="Batch Number" sap:value-list="standard"/>
+                <Property Name="GoodsRecipientName" Type="Edm.String" MaxLength="12" sap:label="Goods Recipient"/>
+                <Property Name="UnloadingPointName" Type="Edm.String" MaxLength="25" sap:label="Unloading Point"/>
+                <Property Name="InventoryUsabilityCode" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Inventory Usability" sap:quickinfo="Inventory Usability Code"/>
+                <Property Name="MaterialGoodsReceiptDuration" Type="Edm.Decimal" Precision="3" Scale="0" sap:label="GR Processing Time" sap:quickinfo="Goods Receipt Processing Duration in Days"/>
+                <Property Name="QuantityDistributionKey" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Distribution Key" sap:quickinfo="MRP Distribution Key"/>
+                <Property Name="StockSegment" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Stock Segment"/>
+                <Property Name="MfgOrderInternalID" Type="Edm.String" MaxLength="10" sap:display-format="NonNegative" sap:label="Order Internal ID"/>
+                <Property Name="ReferenceOrder" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Reference Order" sap:quickinfo="Reference Order Number" sap:value-list="standard"/>
+                <Property Name="LeadingOrder" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Leading Order" sap:quickinfo="Leading Order in Current Processing" sap:value-list="standard"/>
+                <Property Name="SuperiorOrder" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Superior Order" sap:quickinfo="Number of Superior Order" sap:value-list="standard"/>
+                <Property Name="Currency" Type="Edm.String" MaxLength="5" sap:display-format="UpperCase" sap:label="Currency" sap:quickinfo="Order Currency" sap:semantics="currency-code"/>
+                <Property Name="ProductionPlant" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Production Plant"/>
+                <Property Name="PlanningPlant" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Planning Plant" sap:quickinfo="Planning Plant for an Order"/>
+                <Property Name="MRPArea" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="MRP Area"/>
+                <Property Name="MRPController" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="MRP Controller"/>
+                <Property Name="ProductionSupervisor" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Production Supervisor"/>
+                <Property Name="ProductionSchedulingProfile" Type="Edm.String" MaxLength="6" sap:display-format="UpperCase" sap:label="Production Scheduling Profile"/>
+                <Property Name="ResponsiblePlannerGroup" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Planner Group" sap:quickinfo="Responsible Planner Group or Department"/>
+                <Property Name="ProductionVersion" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Production Version" sap:value-list="standard"/>
+                <Property Name="SalesOrder" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Sales Order" sap:value-list="standard"/>
+                <Property Name="SalesOrderItem" Type="Edm.String" MaxLength="6" sap:display-format="NonNegative" sap:label="Sales Order Item" sap:value-list="standard"/>
+                <Property Name="WBSElementInternalID" Type="Edm.String" MaxLength="24" sap:display-format="NonNegative" sap:label="WBS Element Internal" sap:quickinfo="Work Breakdown Structure Element Internal ID" sap:value-list="standard"/>
+                <Property Name="WBSElementInternalID_2" Type="Edm.String" MaxLength="8" sap:display-format="NonNegative" sap:label="WBS Internal ID" sap:quickinfo="WBS Element" sap:value-list="standard"/>
+                <Property Name="Reservation" Type="Edm.String" MaxLength="10" sap:display-format="NonNegative" sap:label="Reservation" sap:quickinfo="Number of reservation/dependent requirements"/>
+                <Property Name="SettlementReservation" Type="Edm.String" MaxLength="10" sap:display-format="NonNegative" sap:label="Settlement Reservation"/>
+                <Property Name="MfgOrderConfirmation" Type="Edm.String" MaxLength="10" sap:display-format="NonNegative" sap:label="Confirmation" sap:quickinfo="Completion confirmation number for the operation"/>
+                <Property Name="NumberOfMfgOrderConfirmations" Type="Edm.String" MaxLength="8" sap:display-format="NonNegative" sap:label="Number Of Confirmations"/>
+                <Property Name="PlannedOrder" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Planned Order"/>
+                <Property Name="CapacityRequirement" Type="Edm.String" MaxLength="12" sap:display-format="NonNegative" sap:label="Capacity Requirement" sap:quickinfo="ID of the Capacity Requirements Record" sap:value-list="standard"/>
+                <Property Name="InspectionLot" Type="Edm.String" MaxLength="12" sap:display-format="NonNegative" sap:label="Inspection Lot" sap:quickinfo="Inspection Lot Number" sap:value-list="standard"/>
+                <Property Name="ChangeNumber" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Change Number" sap:value-list="standard"/>
+                <Property Name="MaterialRevisionLevel" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Revision Level"/>
+                <Property Name="MaterialRevisionLevel_2" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Revision Level"/>
+                <Property Name="BasicSchedulingType" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Basic Scheduling Type"/>
+                <Property Name="ForecastSchedulingType" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Forecast Scheduling Type"/>
+                <Property Name="ProductConfiguration" Type="Edm.String" MaxLength="18" sap:display-format="NonNegative" sap:label="Prod. Configuration" sap:quickinfo="Product Configuration"/>
+                <Property Name="EffectivityParameterVariant" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Standard Variant" sap:quickinfo="Parameter Variant/Standard Variant"/>
+                <Property Name="ConditionApplication" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Application"/>
+                <Property Name="CapacityActiveVersion" Type="Edm.String" MaxLength="2" sap:display-format="NonNegative" sap:label="Version" sap:quickinfo="Version of Available Capacity"/>
+                <Property Name="CapacityRqmtHasNotToBeCreated" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="No Cap. Requirements" sap:quickinfo="Indicator: Do not Create Capacity Requirements"/>
+                <Property Name="OrderSequenceNumber" Type="Edm.String" MaxLength="14" sap:display-format="NonNegative" sap:label="Sequence Number" sap:quickinfo="Sequence Number Order"/>
+                <Property Name="MfgOrderSplitStatus" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Split Status" sap:quickinfo="Status of an Order in a Split Hierarchy"/>
+                <Property Name="BillOfOperationsMaterial" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="BOO Material" sap:quickinfo="Bill of Operations Material" sap:value-list="standard"/>
+                <Property Name="BillOfOperationsType" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="BOO Type" sap:quickinfo="Bill of Operations Type"/>
+                <Property Name="BillOfOperations" Type="Edm.String" MaxLength="8" sap:display-format="UpperCase" sap:label="Bill of Operations" sap:quickinfo="Bill of Operations ID"/>
+                <Property Name="BillOfOperationsGroup" Type="Edm.String" MaxLength="8" sap:display-format="UpperCase" sap:label="BOO Group" sap:quickinfo="Bill of Operations Group"/>
+                <Property Name="BillOfOperationsVariant" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="BOO Variant" sap:quickinfo="Bill of Operations Variant" sap:value-list="standard"/>
+                <Property Name="BOOInternalVersionCounter" Type="Edm.String" MaxLength="8" sap:display-format="NonNegative" sap:label="Counter" sap:quickinfo="Internal counter" sap:value-list="standard"/>
+                <Property Name="BillOfOperationsApplication" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="BOO Application" sap:quickinfo="Bill of Operations Application"/>
+                <Property Name="BillOfOperationsUsage" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="BOO Usage" sap:quickinfo="Bill of Operations Usage"/>
+                <Property Name="BillOfOperationsVersion" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Routing Version"/>
+                <Property Name="BOOExplosionDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Explosion Date" sap:quickinfo="Date for Routing Explosion"/>
+                <Property Name="BOOValidityStartDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Valid From" sap:quickinfo="Valid-From Date"/>
+                <Property Name="BillOfMaterialCategory" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="BOM Category" sap:quickinfo="Bill of Material Category Code"/>
+                <Property Name="BillOfMaterial" Type="Edm.String" MaxLength="8" sap:display-format="UpperCase" sap:label="Bill of Material"/>
+                <Property Name="BillOfMaterialInternalID" Type="Edm.String" MaxLength="8" sap:display-format="UpperCase" sap:label="Bill Of Material"/>
+                <Property Name="BillOfMaterialVariant" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Alternative BOM"/>
+                <Property Name="BillOfMaterialVariantUsage" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="BOM Usage"/>
+                <Property Name="BillOfMaterialVersion" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="BOM Version"/>
+                <Property Name="BOMExplosionDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="BOM Explosion Date" sap:quickinfo="Date of BOM Explosion/Routing Transfer"/>
+                <Property Name="BOMValidityStartDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Valid From" sap:quickinfo="Valid-From Date"/>
+                <Property Name="BusinessArea" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Business Area" sap:value-list="standard"/>
+                <Property Name="CompanyCode" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Company Code" sap:value-list="standard"/>
+                <Property Name="ControllingArea" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Controlling Area"/>
+                <Property Name="ProfitCenter" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Profit Center" sap:value-list="standard"/>
+                <Property Name="CostCenter" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Cost Center" sap:quickinfo="Cost Center for Basic Settlement" sap:value-list="standard"/>
+                <Property Name="ResponsibleCostCenter" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Respons. Cost Center" sap:quickinfo="Responsible Cost Center" sap:value-list="standard"/>
+                <Property Name="CostElement" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Cost Element" sap:quickinfo="Settlement Cost Element"/>
+                <Property Name="CostingSheet" Type="Edm.String" MaxLength="6" sap:display-format="UpperCase" sap:label="Costing Sheet"/>
+                <Property Name="GLAccount" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="G/L Account" sap:quickinfo="G/L Account for Basic Settlement" sap:value-list="standard"/>
+                <Property Name="ProductCostCollector" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Cost Collector" sap:quickinfo="Cost Collector for Production Process" sap:value-list="standard"/>
+                <Property Name="ActualCostsCostingVariant" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Act. Costing Variant" sap:quickinfo="Costing Variant For Actual Costs"/>
+                <Property Name="PlannedCostsCostingVariant" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Plnd Costing Variant" sap:quickinfo="Costing Variant for Planned Costs"/>
+                <Property Name="ControllingObjectClass" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Controlling Object Class"/>
+                <Property Name="FunctionalArea" Type="Edm.String" MaxLength="16" sap:display-format="UpperCase" sap:label="Functional Area"/>
+                <Property Name="MfgOrderPlannedStartDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Planned Start Date" sap:quickinfo="Manufacturing Order Planned Start Date"/>
+                <Property Name="MfgOrderPlannedStartTime" Type="Edm.Time" Precision="0" sap:label="Planned Start Time" sap:quickinfo="Manufacturing Order Planned Start Time"/>
+                <Property Name="MfgOrderPlannedEndDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Planned End Date" sap:quickinfo="Manufacturing Order Planned End Date"/>
+                <Property Name="MfgOrderPlannedEndTime" Type="Edm.Time" Precision="0" sap:label="Planned End Time" sap:quickinfo="Manufacturing Order Planned End Time"/>
+                <Property Name="MfgOrderPlannedReleaseDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Planned Release Date" sap:quickinfo="Manufacturing Order Planned Release Date"/>
+                <Property Name="MfgOrderScheduledStartDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Scheduled Start Date" sap:quickinfo="Manufacturing Order Scheduled Start Date"/>
+                <Property Name="MfgOrderScheduledStartTime" Type="Edm.Time" Precision="0" sap:label="Scheduled Start Time" sap:quickinfo="Manufacturing Order Scheduled Start Time"/>
+                <Property Name="MfgOrderScheduledEndDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Scheduled End Date" sap:quickinfo="Manufacturing Order Scheduled End Date"/>
+                <Property Name="MfgOrderScheduledEndTime" Type="Edm.Time" Precision="0" sap:label="Scheduled End Time" sap:quickinfo="Manufacturing Order Scheduled End Time"/>
+                <Property Name="MfgOrderScheduledReleaseDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Scheduled Release Date" sap:quickinfo="Manufacturing Order Scheduled Release Date"/>
+                <Property Name="MfgOrderActualStartDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Actual Start Date" sap:quickinfo="Manufacturing Order Actual Start Date"/>
+                <Property Name="MfgOrderActualStartTime" Type="Edm.Time" Precision="0" sap:label="Actual Start Time" sap:quickinfo="Manufacturing Order Actual Start Time"/>
+                <Property Name="MfgOrderActualEndDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Actual End Date" sap:quickinfo="Manufacturing Order Actual End Date"/>
+                <Property Name="MfgOrderActualReleaseDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Actual Release Date" sap:quickinfo="Manufacturing Order Actual Release Date"/>
+                <Property Name="MfgOrderConfirmedEndDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Confirmed End Date" sap:quickinfo="Manufacturing Order Confirmed End Date"/>
+                <Property Name="MfgOrderConfirmedEndTime" Type="Edm.Time" Precision="0" sap:label="Confirmed End Time" sap:quickinfo="Manufacturing Order Confirmed End Time"/>
+                <Property Name="MfgOrderTotalCommitmentDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Commitment Date" sap:quickinfo="Total Commitment Date"/>
+                <Property Name="MfgOrderActualCompletionDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Technical Completion" sap:quickinfo="Technical Completion Date"/>
+                <Property Name="MfgOrderItemActualDeliveryDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Actual Delivery Date" sap:quickinfo="Actual Delivery/Finish Date"/>
+                <Property Name="ProductionUnit" Type="Edm.String" MaxLength="3" sap:label="Production Unit" sap:quickinfo="Production Unit of Measure" sap:semantics="unit-of-measure"/>
+                <Property Name="MfgOrderPlannedTotalQty" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="ProductionUnit" sap:label="Total Quantity" sap:quickinfo="Manufacturing Order Planned Total Quantity"/>
+                <Property Name="MfgOrderPlannedScrapQty" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="ProductionUnit" sap:label="Scrap Quantity" sap:quickinfo="Manufacturing Order Planned Scrap Quantity"/>
+                <Property Name="MfgOrderConfirmedYieldQty" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="ProductionUnit" sap:label="Confirmed Yield" sap:quickinfo="Confirmed Yield Quantity From Order Confirmation"/>
+                <Property Name="MfgOrderConfirmedScrapQty" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="ProductionUnit" sap:label="Confirmed Scrap" sap:quickinfo="Confirmed Scrap Quantity From Order Confirmation"/>
+                <Property Name="MfgOrderConfirmedReworkQty" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="ProductionUnit" sap:label="Confirmed Rework" sap:quickinfo="Total Confirmed Rework Quantity"/>
+                <Property Name="ExpectedDeviationQuantity" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="ProductionUnit" sap:label="Expected Deviation" sap:quickinfo="Expected Yield Deviation"/>
+                <Property Name="ActualDeliveredQuantity" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="ProductionUnit" sap:label="GR Quantity" sap:quickinfo="Quantity of Goods Received for the Order Item"/>
+                <Property Name="MasterProductionOrder" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Master Prod. Ord." sap:quickinfo="Master Production Order Number"/>
+                <Property Name="ProductSeasonYear" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Season Year"/>
+                <Property Name="ProductSeason" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Season"/>
+                <Property Name="ProductCollection" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Collection" sap:quickinfo="Fashion Collection"/>
+                <Property Name="ProductTheme" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Theme" sap:quickinfo="Fashion Theme"/>
+                <Property Name="OrderIsCreated" Type="Edm.String" MaxLength="1"/>
+                <Property Name="OrderIsReleased" Type="Edm.String" MaxLength="1"/>
+                <Property Name="OrderIsPrinted" Type="Edm.String" MaxLength="1"/>
+                <Property Name="OrderIsPartiallyPrinted" Type="Edm.String" MaxLength="1"/>
+                <Property Name="OrderIsConfirmed" Type="Edm.String" MaxLength="1"/>
+                <Property Name="OrderIsPartiallyConfirmed" Type="Edm.String" MaxLength="1"/>
+                <Property Name="OrderIsDelivered" Type="Edm.String" MaxLength="1"/>
+                <Property Name="OrderIsDeleted" Type="Edm.String" MaxLength="1"/>
+                <Property Name="OrderIsPreCosted" Type="Edm.String" MaxLength="1"/>
+                <Property Name="SettlementRuleIsCreated" Type="Edm.String" MaxLength="1"/>
+                <Property Name="OrderIsPartiallyReleased" Type="Edm.String" MaxLength="1"/>
+                <Property Name="OrderIsLocked" Type="Edm.String" MaxLength="1"/>
+                <Property Name="OrderIsTechnicallyCompleted" Type="Edm.String" MaxLength="1"/>
+                <Property Name="OrderIsClosed" Type="Edm.String" MaxLength="1"/>
+                <Property Name="OrderIsDistributedToMES" Type="Edm.String" MaxLength="1"/>
+                <Property Name="OrderIsPartiallyDelivered" Type="Edm.String" MaxLength="1"/>
+                <Property Name="OrderIsMarkedForDeletion" Type="Edm.String" MaxLength="1"/>
+                <Property Name="SettlementRuleIsCrtedManually" Type="Edm.String" MaxLength="1"/>
+                <Property Name="OrderIsScheduled" Type="Edm.String" MaxLength="1"/>
+                <Property Name="OrderHasPostedGoodsMovements" Type="Edm.String" MaxLength="1"/>
+                <Property Name="OrderHasGeneratedOperations" Type="Edm.String" MaxLength="1"/>
+                <Property Name="OrderIsToBeHandledInBatches" Type="Edm.String" MaxLength="1"/>
+                <Property Name="MaterialAvailyIsNotChecked" Type="Edm.String" MaxLength="1"/>
+                <Property Name="OrderHasNoMaterialComponents" Type="Edm.String" MaxLength="1"/>
+                <Property Name="OrderIsShopFloorOrder" Type="Edm.String" MaxLength="1"/>
+                <Property Name="OrderIsHandedOverToProduction" Type="Edm.String" MaxLength="1"/>
+                <Property Name="OrderChangeIsRestricted" Type="Edm.String" MaxLength="1"/>
+            </EntityType>
+            <Association Name="assoc_E58255E6E9CE868529149C17C208465F" sap:content-version="1">
+                <End Type="ZCDS_PRODORDERWITHSTATUS_CDS.I_ProductVHType" Multiplicity="1" Role="FromRole_assoc_E58255E6E9CE868529149C17C208465F"/>
+                <End Type="ZCDS_PRODORDERWITHSTATUS_CDS.I_ProductcategoryvhType" Multiplicity="0..1" Role="ToRole_assoc_E58255E6E9CE868529149C17C208465F"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_assoc_E58255E6E9CE868529149C17C208465F">
+                        <PropertyRef Name="ProductCategory"/>
+                    </Principal>
+                    <Dependent Role="FromRole_assoc_E58255E6E9CE868529149C17C208465F">
+                        <PropertyRef Name="ArticleCategory"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="assoc_EE6A775290C5A92287938CE5B3D82BFB" sap:content-version="1">
+                <End Type="ZCDS_PRODORDERWITHSTATUS_CDS.I_ProductVHType" Multiplicity="1" Role="FromRole_assoc_EE6A775290C5A92287938CE5B3D82BFB"/>
+                <End Type="ZCDS_PRODORDERWITHSTATUS_CDS.I_UnitOfMeasureType" Multiplicity="0..1" Role="ToRole_assoc_EE6A775290C5A92287938CE5B3D82BFB"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_assoc_EE6A775290C5A92287938CE5B3D82BFB">
+                        <PropertyRef Name="UnitOfMeasure"/>
+                    </Principal>
+                    <Dependent Role="FromRole_assoc_EE6A775290C5A92287938CE5B3D82BFB">
+                        <PropertyRef Name="WeightUnit"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="assoc_4A7385D38672B9A17EDD3BC5EEEBDFED" sap:content-version="1">
+                <End Type="ZCDS_PRODORDERWITHSTATUS_CDS.I_ProductVHType" Multiplicity="1" Role="FromRole_assoc_4A7385D38672B9A17EDD3BC5EEEBDFED"/>
+                <End Type="ZCDS_PRODORDERWITHSTATUS_CDS.I_UnitOfMeasureType" Multiplicity="0..1" Role="ToRole_assoc_4A7385D38672B9A17EDD3BC5EEEBDFED"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_assoc_4A7385D38672B9A17EDD3BC5EEEBDFED">
+                        <PropertyRef Name="UnitOfMeasure"/>
+                    </Principal>
+                    <Dependent Role="FromRole_assoc_4A7385D38672B9A17EDD3BC5EEEBDFED">
+                        <PropertyRef Name="BaseUnit"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="ZCDS_PRODORDERWITHSTATUS_CDS_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="I_BatchStdVH" EntityType="ZCDS_PRODORDERWITHSTATUS_CDS.I_BatchStdVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="I_BusinessAreaStdVH" EntityType="ZCDS_PRODORDERWITHSTATUS_CDS.I_BusinessAreaStdVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="I_CapacityRequirementStdVH" EntityType="ZCDS_PRODORDERWITHSTATUS_CDS.I_CapacityRequirementStdVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="I_ChangeMasterStdVH" EntityType="ZCDS_PRODORDERWITHSTATUS_CDS.I_ChangeMasterStdVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="I_CompanyCodeStdVH" EntityType="ZCDS_PRODORDERWITHSTATUS_CDS.I_CompanyCodeStdVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="I_CostCenterStdVH" EntityType="ZCDS_PRODORDERWITHSTATUS_CDS.I_CostCenterStdVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="I_GLAccountStdVH" EntityType="ZCDS_PRODORDERWITHSTATUS_CDS.I_GLAccountStdVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="I_InspectionLotStdVH" EntityType="ZCDS_PRODORDERWITHSTATUS_CDS.I_InspectionLotStdVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="I_MaterialStdVH" EntityType="ZCDS_PRODORDERWITHSTATUS_CDS.I_MaterialStdVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="I_MfgBillOfOperationsStdVH" EntityType="ZCDS_PRODORDERWITHSTATUS_CDS.I_MfgBillOfOperationsStdVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="I_MfgBOOChgStateStdVH" EntityType="ZCDS_PRODORDERWITHSTATUS_CDS.I_MfgBOOChgStateStdVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="I_MfgOrderStdVH" EntityType="ZCDS_PRODORDERWITHSTATUS_CDS.I_MfgOrderStdVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="I_Productcategoryvh" EntityType="ZCDS_PRODORDERWITHSTATUS_CDS.I_ProductcategoryvhType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="I_ProductCostCtrlgOrderStdVH" EntityType="ZCDS_PRODORDERWITHSTATUS_CDS.I_ProductCostCtrlgOrderStdVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="I_ProductionVersionStdVH" EntityType="ZCDS_PRODORDERWITHSTATUS_CDS.I_ProductionVersionStdVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="I_ProductVH" EntityType="ZCDS_PRODORDERWITHSTATUS_CDS.I_ProductVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="I_ProfitCenterStdVH" EntityType="ZCDS_PRODORDERWITHSTATUS_CDS.I_ProfitCenterStdVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="I_SalesOrderItemStdVH" EntityType="ZCDS_PRODORDERWITHSTATUS_CDS.I_SalesOrderItemStdVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="I_SalesOrderStdVH" EntityType="ZCDS_PRODORDERWITHSTATUS_CDS.I_SalesOrderStdVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="I_UnitOfMeasure" EntityType="ZCDS_PRODORDERWITHSTATUS_CDS.I_UnitOfMeasureType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="I_WBSElementBasicDataStdVH" EntityType="ZCDS_PRODORDERWITHSTATUS_CDS.I_WBSElementBasicDataStdVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="I_WBSElmntByIntKeyStdVH" EntityType="ZCDS_PRODORDERWITHSTATUS_CDS.I_WBSElmntByIntKeyStdVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="ZCDS_ProdOrderWithStatus" EntityType="ZCDS_PRODORDERWITHSTATUS_CDS.ZCDS_ProdOrderWithStatusType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <AssociationSet Name="assoc_E58255E6E9CE868529149C17C208465F" Association="ZCDS_PRODORDERWITHSTATUS_CDS.assoc_E58255E6E9CE868529149C17C208465F" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="I_ProductVH" Role="FromRole_assoc_E58255E6E9CE868529149C17C208465F"/>
+                    <End EntitySet="I_Productcategoryvh" Role="ToRole_assoc_E58255E6E9CE868529149C17C208465F"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_4A7385D38672B9A17EDD3BC5EEEBDFED" Association="ZCDS_PRODORDERWITHSTATUS_CDS.assoc_4A7385D38672B9A17EDD3BC5EEEBDFED" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="I_ProductVH" Role="FromRole_assoc_4A7385D38672B9A17EDD3BC5EEEBDFED"/>
+                    <End EntitySet="I_UnitOfMeasure" Role="ToRole_assoc_4A7385D38672B9A17EDD3BC5EEEBDFED"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_EE6A775290C5A92287938CE5B3D82BFB" Association="ZCDS_PRODORDERWITHSTATUS_CDS.assoc_EE6A775290C5A92287938CE5B3D82BFB" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="I_ProductVH" Role="FromRole_assoc_EE6A775290C5A92287938CE5B3D82BFB"/>
+                    <End EntitySet="I_UnitOfMeasure" Role="ToRole_assoc_EE6A775290C5A92287938CE5B3D82BFB"/>
+                </AssociationSet>
+            </EntityContainer>
+            <Annotations Target="ZCDS_PRODORDERWITHSTATUS_CDS.I_ProductionVersionStdVHType/Material" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Material"/>
+                        <PropertyValue Property="CollectionPath" String="I_MaterialStdVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Material"/>
+                                    <PropertyValue Property="ValueListProperty" String="Material"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Material_Text"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZCDS_PRODORDERWITHSTATUS_CDS.I_ProductVHType/BaseUnit" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Unit of Measure"/>
+                        <PropertyValue Property="CollectionPath" String="I_UnitOfMeasure"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="BaseUnit"/>
+                                    <PropertyValue Property="ValueListProperty" String="UnitOfMeasure"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="UnitOfMeasure_Text"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZCDS_PRODORDERWITHSTATUS_CDS.I_ProductVHType/WeightUnit" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Unit of Measure"/>
+                        <PropertyValue Property="CollectionPath" String="I_UnitOfMeasure"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="WeightUnit"/>
+                                    <PropertyValue Property="ValueListProperty" String="UnitOfMeasure"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="UnitOfMeasure_Text"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZCDS_PRODORDERWITHSTATUS_CDS.I_ProductVHType/ArticleCategory" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Product Category Type Value Help"/>
+                        <PropertyValue Property="CollectionPath" String="I_Productcategoryvh"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ArticleCategory"/>
+                                    <PropertyValue Property="ValueListProperty" String="ProductCategory"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ProductCategory_Text"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZCDS_PRODORDERWITHSTATUS_CDS.ZCDS_ProdOrderWithStatusType/Material" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Material"/>
+                        <PropertyValue Property="CollectionPath" String="I_MaterialStdVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Material"/>
+                                    <PropertyValue Property="ValueListProperty" String="Material"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Material_Text"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZCDS_PRODORDERWITHSTATUS_CDS.ZCDS_ProdOrderWithStatusType/Product" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Product Value Help"/>
+                        <PropertyValue Property="CollectionPath" String="I_ProductVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Product"/>
+                                    <PropertyValue Property="ValueListProperty" String="Product"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Product_Text"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ProductExternalID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ProductType"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ProductGroup"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="BaseUnit"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="IsBatchManagementRequired"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ArticleCategory"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZCDS_PRODORDERWITHSTATUS_CDS.ZCDS_ProdOrderWithStatusType/Batch" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Batch information"/>
+                        <PropertyValue Property="CollectionPath" String="I_BatchStdVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Batch"/>
+                                    <PropertyValue Property="ValueListProperty" String="Batch"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Plant"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Material"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZCDS_PRODORDERWITHSTATUS_CDS.ZCDS_ProdOrderWithStatusType/ReferenceOrder" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Manufacturing Order"/>
+                        <PropertyValue Property="CollectionPath" String="I_MfgOrderStdVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ReferenceOrder"/>
+                                    <PropertyValue Property="ValueListProperty" String="ManufacturingOrder"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ManufacturingOrderText"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZCDS_PRODORDERWITHSTATUS_CDS.ZCDS_ProdOrderWithStatusType/LeadingOrder" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Manufacturing Order"/>
+                        <PropertyValue Property="CollectionPath" String="I_MfgOrderStdVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="LeadingOrder"/>
+                                    <PropertyValue Property="ValueListProperty" String="ManufacturingOrder"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ManufacturingOrderText"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZCDS_PRODORDERWITHSTATUS_CDS.ZCDS_ProdOrderWithStatusType/SuperiorOrder" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Manufacturing Order"/>
+                        <PropertyValue Property="CollectionPath" String="I_MfgOrderStdVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SuperiorOrder"/>
+                                    <PropertyValue Property="ValueListProperty" String="ManufacturingOrder"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ManufacturingOrderText"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZCDS_PRODORDERWITHSTATUS_CDS.ZCDS_ProdOrderWithStatusType/ProductionVersion" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Production Version"/>
+                        <PropertyValue Property="CollectionPath" String="I_ProductionVersionStdVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ProductionVersion"/>
+                                    <PropertyValue Property="ValueListProperty" String="ProductionVersion"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Material"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Plant"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ProductionVersionText"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ValidityEndDate"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ValidityStartDate"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZCDS_PRODORDERWITHSTATUS_CDS.ZCDS_ProdOrderWithStatusType/SalesOrder" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Sales Order"/>
+                        <PropertyValue Property="CollectionPath" String="I_SalesOrderStdVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SalesOrder"/>
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrder"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZCDS_PRODORDERWITHSTATUS_CDS.ZCDS_ProdOrderWithStatusType/SalesOrderItem" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Sales Order Item"/>
+                        <PropertyValue Property="CollectionPath" String="I_SalesOrderItemStdVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SalesOrderItem"/>
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrderItem"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrder"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrderItemText"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZCDS_PRODORDERWITHSTATUS_CDS.ZCDS_ProdOrderWithStatusType/WBSElementInternalID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="WBS Element Details by Internal ID"/>
+                        <PropertyValue Property="CollectionPath" String="I_WBSElmntByIntKeyStdVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="WBSElementInternalID"/>
+                                    <PropertyValue Property="ValueListProperty" String="WBSElementInternalID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="WBSElement"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="WBSDescription"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZCDS_PRODORDERWITHSTATUS_CDS.ZCDS_ProdOrderWithStatusType/WBSElementInternalID_2" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Basic data for WBS Element"/>
+                        <PropertyValue Property="CollectionPath" String="I_WBSElementBasicDataStdVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="WBSElementInternalID_2"/>
+                                    <PropertyValue Property="ValueListProperty" String="WBSElementInternalID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="WBSElementExternalID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="WBSDescription"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZCDS_PRODORDERWITHSTATUS_CDS.ZCDS_ProdOrderWithStatusType/CapacityRequirement" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Capacity Requirement Header"/>
+                        <PropertyValue Property="CollectionPath" String="I_CapacityRequirementStdVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="CapacityRequirement"/>
+                                    <PropertyValue Property="ValueListProperty" String="CapacityRequirement"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZCDS_PRODORDERWITHSTATUS_CDS.ZCDS_ProdOrderWithStatusType/InspectionLot" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Inspection Lot"/>
+                        <PropertyValue Property="CollectionPath" String="I_InspectionLotStdVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="InspectionLot"/>
+                                    <PropertyValue Property="ValueListProperty" String="InspectionLot"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZCDS_PRODORDERWITHSTATUS_CDS.ZCDS_ProdOrderWithStatusType/ChangeNumber" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Change Number"/>
+                        <PropertyValue Property="CollectionPath" String="I_ChangeMasterStdVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ChangeNumber"/>
+                                    <PropertyValue Property="ValueListProperty" String="ChangeNumber"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ChangeNumberDescription"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZCDS_PRODORDERWITHSTATUS_CDS.ZCDS_ProdOrderWithStatusType/BillOfOperationsMaterial" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Material"/>
+                        <PropertyValue Property="CollectionPath" String="I_MaterialStdVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="BillOfOperationsMaterial"/>
+                                    <PropertyValue Property="ValueListProperty" String="Material"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Material_Text"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZCDS_PRODORDERWITHSTATUS_CDS.ZCDS_ProdOrderWithStatusType/BillOfOperationsVariant" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Manufacturing Bill of Operations"/>
+                        <PropertyValue Property="CollectionPath" String="I_MfgBillOfOperationsStdVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="BillOfOperationsVariant"/>
+                                    <PropertyValue Property="ValueListProperty" String="BillOfOperationsVariant"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="BillOfOperationsType"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="BillOfOperationsGroup"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZCDS_PRODORDERWITHSTATUS_CDS.ZCDS_ProdOrderWithStatusType/BOOInternalVersionCounter" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Manufacturing Bill of Operations Change State"/>
+                        <PropertyValue Property="CollectionPath" String="I_MfgBOOChgStateStdVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="BOOInternalVersionCounter"/>
+                                    <PropertyValue Property="ValueListProperty" String="BOOInternalVersionCounter"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="BillOfOperationsType"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="BillOfOperationsGroup"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="BillOfOperationsVariant"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="BillOfOperationsDesc"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ValidityEndDate"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ValidityStartDate"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZCDS_PRODORDERWITHSTATUS_CDS.ZCDS_ProdOrderWithStatusType/BusinessArea" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Business Area"/>
+                        <PropertyValue Property="CollectionPath" String="I_BusinessAreaStdVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="BusinessArea"/>
+                                    <PropertyValue Property="ValueListProperty" String="BusinessArea"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="BusinessArea_Text"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZCDS_PRODORDERWITHSTATUS_CDS.ZCDS_ProdOrderWithStatusType/CompanyCode" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Company Code"/>
+                        <PropertyValue Property="CollectionPath" String="I_CompanyCodeStdVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="CompanyCode"/>
+                                    <PropertyValue Property="ValueListProperty" String="CompanyCode"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CompanyCodeName"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZCDS_PRODORDERWITHSTATUS_CDS.ZCDS_ProdOrderWithStatusType/ProfitCenter" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Profit Center"/>
+                        <PropertyValue Property="CollectionPath" String="I_ProfitCenterStdVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ProfitCenter"/>
+                                    <PropertyValue Property="ValueListProperty" String="ProfitCenter"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ControllingArea"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ProfitCenter_Text"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ValidityEndDate"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ValidityStartDate"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZCDS_PRODORDERWITHSTATUS_CDS.ZCDS_ProdOrderWithStatusType/CostCenter" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Cost Center"/>
+                        <PropertyValue Property="CollectionPath" String="I_CostCenterStdVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="CostCenter"/>
+                                    <PropertyValue Property="ValueListProperty" String="CostCenter"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ControllingArea"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CostCenter_Text"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ValidityEndDate"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ValidityStartDate"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZCDS_PRODORDERWITHSTATUS_CDS.ZCDS_ProdOrderWithStatusType/ResponsibleCostCenter" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Cost Center"/>
+                        <PropertyValue Property="CollectionPath" String="I_CostCenterStdVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ResponsibleCostCenter"/>
+                                    <PropertyValue Property="ValueListProperty" String="CostCenter"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ControllingArea"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CostCenter_Text"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ValidityEndDate"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ValidityStartDate"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZCDS_PRODORDERWITHSTATUS_CDS.ZCDS_ProdOrderWithStatusType/GLAccount" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="General Ledger Account"/>
+                        <PropertyValue Property="CollectionPath" String="I_GLAccountStdVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="GLAccount"/>
+                                    <PropertyValue Property="ValueListProperty" String="GLAccount"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="GLAccount_Text"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CompanyCode"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="GLAccountExternal"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="AlternativeGLAccount"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ChartOfAccounts"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="GLAccountGroup"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="GLAccountType"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ReconciliationAccountType"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZCDS_PRODORDERWITHSTATUS_CDS.ZCDS_ProdOrderWithStatusType/ProductCostCollector" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Product Cost Controlling Order"/>
+                        <PropertyValue Property="CollectionPath" String="I_ProductCostCtrlgOrderStdVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ProductCostCollector"/>
+                                    <PropertyValue Property="ValueListProperty" String="OrderID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="OrderDescription"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="OrderCategory"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="OrderType"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Plant"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZCDS_PRODORDERWITHSTATUS_CDS.ZCDS_PRODORDERWITHSTATUS_CDS_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ZCDS_PRODORDERWITHSTATUS_CDS.ZCDS_PRODORDERWITHSTATUS_CDS_Entities/I_ProductVH" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="to_BaseUnit"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="to_ProductCategory"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="to_WeightUnit"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZCDS_PRODORDERWITHSTATUS_CDS.I_UnitOfMeasureType/UnitOfMeasure" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.UnitSpecificScale" Path="UnitOfMeasureDspNmbrOfDcmls"/>
+            </Annotations>
+            <atom:link rel="self" href="https://dev:44300/sap/opu/odata/sap/ZCDS_PRODORDERWITHSTATUS_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://dev:44300/sap/opu/odata/sap/ZCDS_PRODORDERWITHSTATUS_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

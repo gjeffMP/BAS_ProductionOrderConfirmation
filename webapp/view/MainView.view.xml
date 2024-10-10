@@ -1,0 +1,127 @@
+<mvc:View controllerName="com.mpmaterials.prodorderconfirmation.controller.MainView"
+        displayBlock="true"
+        xmlns="sap.m"
+        xmlns:mvc="sap.ui.core.mvc"
+        xmlns:sem="sap.m.semantic"
+        xmlns:ui="sap.ui.table"
+        xmlns:u="sap.ui.unified"
+        xmlns:core="sap.ui.core"
+    >
+    <sem:FullscreenPage id="mainPage">  
+        <VBox class="sapUiResponsiveContentPadding" width="100%">
+            <!-- Top Section for Production Order and Operation -->
+            <Panel headerText="Order Information">
+                <VBox>
+                    <HBox>
+                        <Label text="Production Order" width="{inputData>/labelWidth}" />
+                        <Input id="productionOrderInput" 
+                            value="{ path: 'inputData>/productionOrder' }"
+                            showValueHelp="true" 
+                            valueHelpRequest="onProductionOrderValueHelp" />
+                    </HBox>
+                    <HBox>
+                        <Label text="Operation" width="{inputData>/labelWidth}"/>
+                        <Input id="operationInput" 
+                            value="{ path: 'inputData>/operation' }"
+                            showValueHelp="true" 
+                            valueHelpRequest="onProductionOrderValueHelp" />
+                        <Text text="{inputData>/workCenter}" />
+                    </HBox>
+                    <HBox>
+                        <Label labelFor="postingDateInput" text="Posting Date" width="{inputData>/labelWidth}"/>
+                        <DatePicker id="postingDateInput" 
+                            width="13em"
+                            valueFormat="MM/dd/yyyy"
+                            displayFormat="MM/dd/yyyy"
+                            value="{inputData>/postingDate}"
+                        />            
+                    </HBox>
+                </VBox>
+            </Panel>
+
+            <!-- Section for Confirmed Quantity -->
+            <Panel headerText="Confirmation Details">
+                <VBox>
+                    <HBox>
+                        <Label text="Confirmed Qty" width="{inputData>/labelWidth}"/>
+                        <Input 
+                            value="{ path: 'inputData>/confirmedQty'}"
+                            placeholder="Confirmed Qty {inputData>/confirmedUom}"
+                            type="Number"
+                            change="onQtyChange"
+                        />                    
+                        <Text text="{inputData>/confirmedUom}" />
+                    </HBox>
+                </VBox>
+            </Panel>
+
+            <!-- Section for Input Quantities and Calculated Fields -->
+            <Panel headerText="Activity Details">
+                <VBox>
+                    <HBox>
+                        <Label text="Setup Magnetics" width="{inputData>/labelWidth}"/>
+                        <Input 
+                            value="{ path: 'inputData>/setupQty'}"
+                            placeholder="Setup Hours"
+                            type="Number"
+                            change="onQtyChange"
+                        />                    
+                        <Text text="{inputData>/setupUom}" />
+                    </HBox>
+                    <HBox>
+                        <Label text="Labor Magnetics" width="{inputData>/labelWidth}"/>
+                        <Input 
+                            value="{ path: 'inputData>/laborQty'}"
+                            placeholder="Labor Hours"
+                            type="Number"
+                            change="onQtyChange"
+                        />                    
+                        <Text text="{inputData>/laborUom}" />
+                    </HBox>
+                    <HBox>
+                        <Label text="Machine Magnetics" width="{inputData>/labelWidth}"/>
+                        <Input 
+                            value="{ path: 'inputData>/machineQty'}"
+                            placeholder="Machine Hours"
+                            type="Number"
+                            change="onQtyChange"
+                        />                    
+                        <Text text="{inputData>/machineUom}" />
+                    </HBox>
+                    <HBox>
+                        <Label text="Overhead Magnetics" width="{inputData>/labelWidth}"/>
+                        <Input 
+                            value="{ path: 'inputData>/overheadQty'}"
+                            placeholder="Overhead Hours"
+                            editable="false"
+                            type="Number"
+                        />                    
+                        <Text text="{inputData>/overheadUom}" />
+                    </HBox>
+                    <HBox>
+                        <Label text="Depreciation" width="{inputData>/labelWidth}"/>
+                        <Input 
+                            value="{ path: 'inputData>/depreciationQty'}"
+                            placeholder="Depreciation Hours"
+                            editable="false"
+                            type="Number"
+                        />                    
+                        <Text text="{inputData>/depreciationUom}" />
+                    </HBox>
+                </VBox>
+            </Panel>
+        </VBox>
+
+        <sem:customFooterContent>
+            <Button
+                id="postButton"
+                visible="true"
+                enabled="true"
+                text="Post Confirmation"
+                type="Emphasized"
+                busyIndicatorDelay="0"
+                press="onClickPostDocument"
+            />
+        </sem:customFooterContent>
+    </sem:FullscreenPage>    
+</mvc:View>

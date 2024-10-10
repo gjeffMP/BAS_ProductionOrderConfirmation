@@ -1,0 +1,80 @@
+<core:FragmentDefinition
+	xmlns="sap.ui.comp.valuehelpdialog"
+	xmlns:m="sap.m"
+	xmlns:fb="sap.ui.comp.filterbar"
+	xmlns:core="sap.ui.core">
+	<ValueHelpDialog
+		title="Select Production Order"
+		ok=".onValueHelpOkPress"
+		cancel=".onValueHelpCancelPress"
+		afterClose=".onValueHelpAfterClose"
+		supportRanges="false"
+		key="UniqueID"
+        supportMultiselect="false"
+        afterOpen="onFilterBarChange"
+		descriptionKey="ManufacturingOrder">
+		<filterBar>
+			<fb:FilterBar id="productionOrderFilterBar" advancedMode="true" search=".onFilterBarSearch" isRunningInValueHelpDialog="true">
+				<fb:filterGroupItems>
+					<fb:FilterGroupItem
+						groupName="__$INTERNAL$"
+						name="ManufacturingOrder"
+						label="Production Order"
+						visibleInFilterBar="true">
+						<fb:control>
+							<m:Input name="ManufacturingOrder" change=".onFilterBarChange"/>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<fb:FilterGroupItem
+						groupName="__$INTERNAL$"
+						name="Product"
+						label="Product"
+						visibleInFilterBar="true">
+						<fb:control>
+							<m:Input name="Product" change=".onFilterBarChange"/>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<fb:FilterGroupItem
+						groupName="__$INTERNAL$"
+						name="ProductName"
+						label="Product Name"
+						visibleInFilterBar="true">
+						<fb:control>
+							<m:Input name="ProductName" change=".onFilterBarChange"/>
+						</fb:control>
+					</fb:FilterGroupItem>                    
+
+
+					<fb:FilterGroupItem
+						groupName="__$INTERNAL$"
+						name="ProductionPlant"
+						label="Plant"
+						visibleInFilterBar="true">
+						<fb:control>
+							<m:Input id="plantVHInput" name="ProductionPlant" change=".onFilterBarChange"/>
+						</fb:control>
+					</fb:FilterGroupItem>  
+					<fb:FilterGroupItem
+						groupName="__$INTERNAL$"
+						name="OrderIsReleased"
+						label="Released?"
+						visibleInFilterBar="true">
+						<fb:control>
+							<m:Input id="releasedVHInput" name="OrderIsReleased" change=".onFilterBarChange"/>
+						</fb:control>
+					</fb:FilterGroupItem>  
+					<fb:FilterGroupItem
+						groupName="__$INTERNAL$"
+						name="OrderIsClosed"
+						label="Closed?"
+						visibleInFilterBar="false">
+						<fb:control>
+							<m:Input id="closedVHInput" name="OrderIsClosed" change=".onFilterBarChange"/>
+						</fb:control>
+					</fb:FilterGroupItem> 
+
+				</fb:filterGroupItems>
+			</fb:FilterBar>
+		</filterBar>
+	</ValueHelpDialog>
+</core:FragmentDefinition>
